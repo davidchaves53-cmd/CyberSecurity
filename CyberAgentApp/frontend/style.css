@@ -1,0 +1,164 @@
+:root {
+    --bg: #030712;
+    --panel: #0a0f1a;
+    --border: #1f2937;
+    --text: #e0e7ff;
+    --muted: #64748b;
+    --neon: #00f0ff;
+    --neon-soft: #00c4d6;
+    --neon-glow: 0 0 12px rgba(0, 255, 255, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #0a0f1a 0%, #030712 60%, #000 100%);
+    color: var(--text);
+    font-family: "JetBrains Mono", monospace;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: rgba(3, 7, 18, 0.9);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 16px;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+}
+
+.status-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--neon);
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 16px;
+    padding: 16px;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+}
+
+.small-btn {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--neon-soft);
+    background: transparent;
+    color: var(--neon);
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.small-btn:hover {
+    background: var(--neon-soft);
+    color: #000;
+}
+
+.code-input {
+    width: 100%;
+    min-height: 120px;
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+button {
+    background: var(--neon-soft);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    box-shadow: var(--neon-glow);
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+button:hover {
+    background: var(--neon);
+}
+
+.output-box,
+.stream-box {
+    background: #000;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+    white-space: pre-wrap;
+    overflow-y: auto;
+    max-height: 500px;
+    min-height: 200px;
+    line-height: 1.4;
+    font-size: 12px;
+}
+
+.stream-box {
+    max-height: 300px;
+    min-height: 180px;
+}
+
+.action-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.action-row input {
+    background: #000;
+    border: 1px solid var(--border);
+    padding: 8px;
+    border-radius: 6px;
+    color: var(--neon);
+    text-shadow: var(--neon-glow);
+    font-size: 12px;
+}

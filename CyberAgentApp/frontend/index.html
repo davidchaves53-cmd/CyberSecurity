@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CyberSOC Console</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">CyberSOC</div>
+        <div class="status-pill">Agent: ONLINE</div>
+    </div>
+
+    <div class="layout">
+        <div class="left-column">
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Live Events</h2>
+                    <button class="small-btn" onclick="loadSampleEvent()">Sample</button>
+                </div>
+                <textarea id="ingestInput" class="code-input" placeholder='{"source": "...", "event_type": "...", "payload": {...}}'></textarea>
+                <button onclick="ingestEvent()">Ingest Event</button>
+                <pre id="ingestOutput" class="output-box"></pre>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Real-Time Event Stream</h2>
+                    <div>
+                        <button class="small-btn" onclick="startEventStream()">Start</button>
+                        <button class="small-btn" onclick="stopEventStream()">Stop</button>
+                    </div>
+                </div>
+                <pre id="eventStreamOutput" class="stream-box"></pre>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Correlation</h2>
+                    <button class="small-btn" onclick="loadSampleCorrelation()">Sample</button>
+                </div>
+                <textarea id="correlateInput" class="code-input" placeholder='[ { "source": "...", "event_type": "...", "payload": {...} }, ... ]'></textarea>
+                <button onclick="correlate()">Correlate</button>
+                <pre id="correlateOutput" class="output-box"></pre>
+            </div>
+
+        </div>
+
+        <div class="right-column">
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>AI Analysis</h2>
+                    <button class="small-btn" onclick="loadSampleAnalyze()">Sample</button>
+                </div>
+                <textarea id="analyzeInput" class="code-input" placeholder='{"ip": "...", "event": "...", "count": 10}'></textarea>
+                <button onclick="analyze()">Analyze</button>
+                <pre id="analyzeOutput" class="output-box"></pre>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Actions</h2>
+                </div>
+                <div class="action-row">
+                    <input id="actionName" placeholder="block_ip / disable_user / quarantine_host">
+                    <input id="actionTarget" placeholder="Target (IP, user, host)">
+                    <button onclick="takeAction()">Execute</button>
+                </div>
+                <pre id="actionOutput" class="output-box"></pre>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>Explain</h2>
+                </div>
+                <textarea id="explainInput" class="code-input" placeholder="Describe the event or alert"></textarea>
+                <button onclick="explainEvent()">Explain</button>
+                <pre id="explainOutput" class="output-box"></pre>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>AI Event Generator</h2>
+                </div>
+                <textarea id="aiGenInput" class="code-input" placeholder="e.g. 'brute force attack on admin from 10.0.0.5'"></textarea>
+                <button onclick="generateEvent()">Generate</button>
+                <pre id="aiGenOutput" class="output-box"></pre>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
